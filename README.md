@@ -133,7 +133,7 @@ Phrase.updateTranslations(new TranslationsSyncCallback() {
 
 Translation updates can also be triggered manually. Newly fetched translations are displayed upon the next application launch.
 
-To make the latest translations immediately available, use the method `Phrase.applyPendingUpdates()`. This can be combined with listening for translation updates:
+To make the latest translations immediately available, use the method `Phrase.applyPendingUpdate()`. This can be combined with listening for translation updates:
 
 ```java
 Phrase.updateTranslations(new TranslationsSyncCallback() {
