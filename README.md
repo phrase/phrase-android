@@ -140,7 +140,7 @@ Phrase.updateTranslations(new TranslationsSyncCallback() {
     @Override
     public void onSuccess(boolean translationsChanged) {
       if(translationsChanged) {
-         Phrase.applyPendingUpdates()
+         Phrase.applyPendingUpdate()
         // Custom logic to refresh UI
       }
     }
