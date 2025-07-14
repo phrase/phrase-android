@@ -23,15 +23,15 @@ DEPENDENCIES AND LICENSE INFORMATION:
 3. com.google.code.gson:gson
    - Version: 2.10.1
    - License: "Apache 2.0"
-   - Author(s): "Apache Software Foundation"
-   - URL: https://commons.apache.org/proper/commons-text
+   - Author(s): "Google"
+   - URL: https://github.com/google/gson
    - License text: See LICENSES file within the included source code of the dependency
 
 4. org.apache.commons:commons-text
    - Version: 1.11.0
    - License: "Apache 2.0"
-   - Author(s): "Google"
-   - URL: https://github.com/google/gson
+   - Author(s): "Apache Software Foundation"
+   - URL: https://commons.apache.org/proper/commons-text
    - License text: See LICENSES file within the included source code of the dependency
 
 ---
