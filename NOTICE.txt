@@ -1,0 +1,25 @@
+NOTICE
+
+This product includes third party software developed by various authors.
+
+---
+
+DEPENDENCIES AND LICENSE INFORMATION:
+
+2. androidx.appcompat:appcompat
+   - Version:  1.1.0
+   - License:  "Apache 2.0"
+   - Author(s):  "Google"
+   - URL: https://developer.android.com/jetpack/androidx/releases/appcompat#1.1.0
+   - License text: See LICENSES file within the included source code of the dependency
+
+3. io.github.inflationx:viewpump
+   - Version:  2.0.3
+   - License:  "Apache 2.0"
+   - Author(s):  "InflationX"
+   - URL: https://github.com/InflationX/ViewPump
+   - License text: See LICENSES file within the included source code of the dependency
+
+---
+
+This NOTICE file is for informational purposes only and does not modify the license terms of any referenced software.
