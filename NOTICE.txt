@@ -1,0 +1,39 @@
+NOTICE
+
+This product includes third party software developed by various authors.
+
+---
+
+DEPENDENCIES AND LICENSE INFORMATION:
+
+1. androidx.appcompat:appcompat
+   - Version: 1.6.1
+   - License: "Apache 2.0"
+   - Author(s): "Android Open Source Project"
+   - URL: https://developer.android.com/jetpack/androidx/releases/appcompat
+   - License text: See LICENSES file within the included source code of the dependency
+
+2. com.google.android.material:material
+   - Version: 1.7.0
+   - License: "Apache 2.0"
+   - Author(s): "Google (Material Components team)"
+   - URL: https://github.com/material-components/material-components-android
+   - License text: See LICENSES file within the included source code of the dependency
+
+3. com.google.code.gson:gson
+   - Version: 2.10.1
+   - License: "Apache 2.0"
+   - Author(s): "Google"
+   - URL: https://github.com/google/gson
+   - License text: See LICENSES file within the included source code of the dependency
+
+4. org.apache.commons:commons-text
+   - Version: 1.11.0
+   - License: "Apache 2.0"
+   - Author(s): "Apache Software Foundation"
+   - URL: https://commons.apache.org/proper/commons-text
+   - License text: See LICENSES file within the included source code of the dependency
+
+---
+
+This NOTICE file is for informational purposes only and does not modify the license terms of any referenced software.
