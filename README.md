@@ -2,16 +2,16 @@
 
 Publish your translations faster and simpler than ever before. Stop waiting for the next deployment and start publishing all your translations in real-time directly in Phrase.
 
-For more details on how OTA works head over to the Phrase Help Center: https://support.phrase.com/hc/en-us/articles/5804059067804-Over-the-Air-Strings
+For more details on how OTA works, visit the Phrase Help Center: https://support.phrase.com/hc/en-us/articles/5804059067804-Over-the-Air-Strings
 
 ## Instructions
 
-With the SDK, the app regularly checks for updated translations and downloads them in the background. Translations are fetched when `updateTranslations` is called, which should usually happen in `onCreate`.
+With the SDK, the app will regularly check for updated translations and downloads them in the background. Translations are fetched when `updateTranslations` is called, which should usually happen in `onCreate`.
 
 
 ### Requirements
 - The SDK requires at least appcompat version 1.2.0. If using an older version of appcompat, consider using SDK version [2.1.3](https://github.com/phrase/phrase-android/releases/tag/2.1.3)
-- The library depends on AndroidX to support backward compatible UI elements such as the toolbar.
+- The library depends on AndroidX to support backward compatible UI elements such as the toolbar
 
 ### Include the SDK
 Add a new repository to the root `build.gradle`:
@@ -34,7 +34,7 @@ dependencies {
 }
 ```
 
-### Jetpack Compose support
+### Jetpack Compose Support
 To enable Jetpack Compose support for OTA translations, follow these steps:
 1. Add the library `implementation "com.phrase.android:ota-sdk-compose:3.10.2"` to the root build.gradle.
 2. Wrap the Jetpack Compose code in `Phrase { ... }`.
@@ -58,7 +58,7 @@ public class MainApplication extends Application {
 }
 ```
 
-Iinject the SDK in each activity, e.g. by creating a base activity which all other activities inherit from:
+Inject the SDK in each activity, e.g. by creating a base activity which all other activities inherit from:
 
 ```java
 public class BaseActivity extends AppCompatActivity {
@@ -103,7 +103,7 @@ PhraseLog.logLevel = Severity.Verbose
 Other supported logging values: `None`, `Error`, `Warning`, `Info`, `Debug`, `Verbose`
 
 ### Custom app version
-The SDK uses the app version by default to return a release which matches the release constraints for the min and max version. The app version must use semantic versioning otherwise no translation update is returned. In case the app does not use semantic versioning it is possible to manually override the used app version.
+The SDK uses the app version by default to return a release which matches the release constraints for the min and max version. The app version must follow semantic versioning. Otherwise, no translations updates will be returned. In case the app does not use semantic versioning it is possible to manually override the used app version.
 
 Example:
 `Phrase.setAppVersion("3.2.4");`
@@ -225,7 +225,12 @@ Example [app](https://github.com/phrase/android-sdk-example)
 If the wrong version of a translation is being used, ensure a release with the latest translations and the current app version is available and the `versionName` for the app set and are using the `<major>.<minor>.<point>`. format.
 
 
-## Known limitations
+## Limitations
 
 - Inflated menus and preferences are not supported yet
+- Texts in custom views need to be updated [manually](https://github.com/phrase/phrase-android/?tab=readme-ov-file#custom-view-support)
+- Kotlin Multiplatform is not officially supported
+- Jetpack Compose views need to be wrapped with `Phrase { ... }.`
+- Plural translations are not yet supported with Jetpack Compose
+- Supported Android versions: API level 21+
 - Some libraries that do not support automatic context unwrapping can cause issues. For example `Hilt` requires to disable automatic context wrapping in Compose components https://github.com/phrase/phrase-android/releases/tag/3.5.0
