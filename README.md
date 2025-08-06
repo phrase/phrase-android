@@ -230,7 +230,9 @@ If the wrong version of a translation is being used, ensure a release with the l
 - Inflated menus and preferences are not supported yet
 - Texts in custom views need to be updated [manually](https://github.com/phrase/phrase-android/?tab=readme-ov-file#custom-view-support)
 - Kotlin Multiplatform is not officially supported
-- Jetpack Compose views need to be wrapped with `Phrase { ... }.`
-- Plural translations are not yet supported with Jetpack Compose
 - Supported Android versions: API level 21+
-- Some libraries that do not support automatic context unwrapping can cause issues. For example `Hilt` requires to disable automatic context wrapping in Compose components https://github.com/phrase/phrase-android/releases/tag/3.5.0
+
+### Jetpack Compose Limits
+- Views need to be wrapped with `Phrase { ... }`
+- Plural translations are not yet supported with Compose
+- Some libraries do not support automatic context unwrapping. For example `Hilt` requires to disable automatic context wrapping in Compose components. More details can be found [here](https://github.com/phrase/phrase-android/?tab=readme-ov-file#configuration)
