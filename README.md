@@ -157,7 +157,7 @@ The UI does not display translations automatically and must be recreated.
 Phrase US data center is also supported. The US data center can be configured by calling:
 
 ```
-Phrase.setHost("https://ota.us.phrase.com/")
+Phrase.setDatacenter(PhraseDataCenter.US)
 ```
 
 ### Fallback
