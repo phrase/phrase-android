@@ -226,13 +226,13 @@ If the wrong version of a translation is being used, ensure a release with the l
 
 
 ## Limitations
-
+- Wrapping `Context` with Phrase can lead to issues with `WebView`. `WebView` interactions which access Android resources might fail and can lead to app crashes. E.g. the opening of an HTML drop-down menu. Consider to use `Context.getPhrase*()`/`Resources.getPhrase*()` extension functions to get translations via Phrase. These functions do not need a wrapped `Context` and the wrapping can be removed or disabled.
 - Inflated menus and preferences are not supported yet
 - Texts in custom views need to be updated [manually](https://github.com/phrase/phrase-android/?tab=readme-ov-file#custom-view-support)
 - Kotlin Multiplatform is not officially supported
 - Supported Android versions: API level 21+
+- Plural translations are only supported on Android API Level 24+
 
 ### Jetpack Compose Limits
-- Views need to be wrapped with `Phrase { ... }`
-- Plural translations are not yet supported with Compose
 - Some libraries do not support automatic context unwrapping. For example `Hilt` requires to disable automatic context wrapping in Compose components. More details can be found [here](https://github.com/phrase/phrase-android/?tab=readme-ov-file#configuration)
+
