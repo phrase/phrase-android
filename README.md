@@ -64,7 +64,7 @@ open class BaseActivity : AppCompatActivity {
 
 }
 ```
-> Former versions of the Phrase SDK relied on a Phrase wrapped Context. This is not necessary any more. Only drawback is that build in Android translation functions like `Context.getSting()` will not return Phrase translations any more.
+> Former versions of the Phrase SDK relied on a Phrase wrapped Context. This is not necessary any more. Only drawback is that build in Android translation functions like `Context.getString()` will not return Phrase translations any more.
 This change will mitigate possible issues in combination with components which dynamically register own resources. Most popular example is `WebView`.
 
 Translations can be used as usual in layouts:
