@@ -19,7 +19,7 @@ Add a new repository to the root `build.gradle`:
 ```
 allprojects {
     repositories {
-        ...
+        …
         maven { url "https://maven.download.phrase.com" }
     }
 }
@@ -29,63 +29,52 @@ Add the library as a dependency:
 
 ```
 dependencies {
-    implementation "com.phrase.android:ota-sdk:3.10.2"
-    ...
+    implementation "com.phrase.android:ota-sdk-compose:3.11.0"
+    // Or, if Jetpack Compose is not used
+    // implementation "com.phrase.android:ota-sdk:3.11.0"
+    …
+}
+```
+
+### Configuration
+Initialize the SDK in the application class and add the distribution ID and environment secret.
+
+```kotlin
+class MainApplication : Application {
+
+  override fun onCreate() {
+      super.onCreate()
+      Phrase.setup(this, "DISTRIBUTION_ID", "ENVIRONMENT_TOKEN")
+      Phrase.updateTranslations()
+  }
+
 }
 ```
 
 ### Jetpack Compose Support
-To enable Jetpack Compose support for OTA translations, follow these steps:
-1. Add the library `implementation "com.phrase.android:ota-sdk-compose:3.10.2"` to the root build.gradle.
-2. Wrap the Jetpack Compose code in `Phrase { ... }`.
+Use Phrase provided composables to get the translations: `phraseString(R.string.translation_key)`.
 
-### Configuration
-Initialize the SDK in the application class and add the distribution ID and environment secret. Classes inheriting from Application should overwrite `attachBaseContext` to enable translations outside of the activity context:
-
-```java
-public class MainApplication extends Application {
-  @Override
-  public void onCreate() {
-      super.onCreate();
-      Phrase.setup(this, "DISTRIBUTION_ID", "ENVIRONMENT_TOKEN");
-      Phrase.updateTranslations();
-  }
-
-  @Override
-  protected void attachBaseContext(Context newBase) {
-    super.attachBaseContext(Phrase.wrapApplicationContext(newBase));
-  }
-}
-```
-
+### Android View Support
 Inject the SDK in each activity, e.g. by creating a base activity which all other activities inherit from:
 
-```java
-public class BaseActivity extends AppCompatActivity {
-  @NonNull
-  @Override
-  public AppCompatDelegate getDelegate() {
-    return Phrase.getDelegate(this, super.getDelegate());
-  }
+```kotlin
+open class BaseActivity : AppCompatActivity {
+
+  override fun getDelegate() = Phrase.getDelegate(this, wrapContext = false)
+
 }
 ```
+> Former versions of the Phrase SDK relied on a Phrase wrapped Context. This is not necessary any more. Only drawback is that build in Android translation functions like `Context.getString()` will not return Phrase translations any more.
+This change will mitigate possible issues in combination with components which dynamically register own resources. Most popular example is `WebView`.
 
 Translations can be used as usual in layouts:
 ```xml
 <TextView android:text="@string/translation_key" />
 ```
 And inside code:
-```java
-TextView text = (TextView) findViewById(R.id.text_id);
-text.setText(R.string.translation_key);
-```
-
-Some libraries do not support automatically unwrapping the context and expect a specific class. In this case context wrapping in Jetpack Compose components can be disabled with:
-
-```
-Phrase(contextWrapping = false) {
-    Text( text = phraseString(R.string.test) )
-}
+```kotlin
+val textView = findViewById<TextView>(R.id.text_id)
+textView.setText(context.getPhraseString(R.string.translation_key))
 ```
 
 ### Configurations for log levels:
