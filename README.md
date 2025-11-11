@@ -51,6 +51,9 @@ class MainApplication : Application {
 }
 ```
 
+### Update to a new Version
+When updating the Phrase OTA SDK, please check the [migration guide](MIGRATION.md) if you need or should adapt your code to the changes.
+
 ### Jetpack Compose Support
 Use Phrase provided composables to get the translations: `phraseString(R.string.translation_key)`.
 
