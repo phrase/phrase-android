@@ -216,6 +216,18 @@ Example [app](https://github.com/phrase/android-sdk-example)
 
 If the wrong version of a translation is being used, ensure a release with the latest translations and the current app version is available and the `versionName` for the app set and are using the `<major>.<minor>.<point>`. format.
 
+## Android SDK Support
+
+The Phrase OTA SDK supports different minimum Android SDK versions depending on the version you're using. Choose the appropriate SDK version based on your app's minimum supported Android version.
+
+|OTA|Android SDK|
+|-----------|-------|
+|v3.10.0+|21|
+|v0.1.0+|15|
+
+|OTA Compose|Android SDK|
+|-----------|-------|
+|v3.2.5+|21|
 
 ## Limitations
 - Wrapping `Context` with Phrase can lead to issues with `WebView`. `WebView` interactions which access Android resources might fail and can lead to app crashes. E.g. the opening of an HTML drop-down menu. Consider to use `Context.getPhrase*()`/`Resources.getPhrase*()` extension functions to get translations via Phrase. These functions do not need a wrapped `Context` and the wrapping can be removed or disabled.
